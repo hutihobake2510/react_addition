@@ -8,3 +8,8 @@ before_install:
   - pip install selenium
 install: true
 script: python tests.py
+deploy:
+  provider: pages
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: master
