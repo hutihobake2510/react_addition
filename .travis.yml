@@ -1,0 +1,15 @@
+language: python
+python: 3.6
+sudo: required
+addons:
+  chrome: stable
+before_install:
+  - wget https://chromedriver.storage.googleapis.com/2.46/chromedriver_linux64.zip && sudo unzip chromedriver_linux64.zip -d ~/.local/bin/ && sudo chmod 777 ~/.local/bin/chromedriver && rm -rf chromedriver_linux64.zip
+  - pip install selenium
+install: true
+script: python tests.py
+deploy:
+  provider: pages
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: master
